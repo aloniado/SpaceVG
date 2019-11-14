@@ -1,0 +1,184 @@
+/*
+Graphics project 2018 - by Alon Laniado
+css file
+*/
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+}
+
+main {
+    display: flex;
+    flex-grow:1;
+    overflow:hidden; /* disabeling scrolling*/
+    justify-content: center;
+    align-items: center;
+    
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 50px;
+    
+    background: #33425B;
+}
+
+footer{
+    height:32px;
+    background-color: #39465c;
+    display: flex;
+    /* horizontal */
+    justify-content: center;
+    /* vertical */
+    align-items: center;
+}
+
+
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+svg {
+   border: 0px solid gray;
+   width: 100%;
+   height: 100%;
+   display: block;
+}
+
+
+/*--------------------------------------SPACE TEXT------------------------------*/
+
+#text-stop1 {
+    animation: anim1 4s ease-in-out infinite alternate;
+}
+#text-stop2 {
+    animation: anim2 4s ease-in-out infinite alternate;
+}
+
+#space-text {
+    stroke-dasharray: 100 20;
+    stroke-dashoffset: 600;
+    animation: stroke 5s ease-in-out infinite alternate;
+}
+.space-text { animation: stroke 4s ease-in-out infinite alternate;}
+
+/*------------------------------------------------------------------------------*/
+
+
+#popup {
+    visibility: hidden;
+}
+
+#info-symbol:hover ~ #popup {
+    visibility: visible;
+}
+
+#text-path-anim2 {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: stroke 10s linear infinite;
+}
+@keyframes stroke {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+/*-----------------------------------------------------------animations:        */
+#mainmoon { animation: scale 6s ease infinite; }
+
+
+#star1 { animation: flash 2s linear infinite; }
+#star2 { animation: flash 12s linear infinite; }
+#star3 { animation: flash 11s linear infinite; }
+#star4 { animation: flash 10s linear infinite; }
+#star5 { animation: flash 6s linear infinite; }
+#star6 { animation: flash 7s linear infinite; }
+#star7 { animation: flash 8s linear infinite; }
+
+
+
+#mp-space-station {
+    transform: rotate(90deg);
+    offset-path: path("M 1100 300 a 1600 200 0 1 0 0.0055 1");
+    animation: motionpath 60s ease infinite;
+}
+
+#mp-rocket {
+    transform: rotate(90deg);
+    offset-path: path("M 360 200 a 300 100 0 1 0 0.0011 0");
+    animation: motionpath 13s linear infinite;
+}
+
+
+
+#mp-alien {
+  animation: MoveUpDown 17s ease infinite;
+  position: absolute;
+    
+}
+
+/*----------------------------------keyframes for motions:          */
+@keyframes motionpath {
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+@keyframes scale {
+    0, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale(1.02, 1.02);
+    }
+} 
+
+@keyframes flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes anim1 {
+    0% { stop-color: cyan; }
+    100% { stop-color: gold; }
+} 
+
+@keyframes anim2 {
+    0% { stop-color: blue; }
+    100% { stop-color: red; stop-opacity: 0.5}
+}
+
+@keyframes stroke {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes MoveUpDown {
+    0%, 91%, 100% { transform: translateY(0); }
+    95%, 96% { transform: translateY(-26px); }
+}
+
+
+
